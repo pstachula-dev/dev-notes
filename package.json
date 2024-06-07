@@ -3,5 +3,9 @@
   "version": "1.0.0",
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "devDependencies": {
+    "@biomejs/biome": "1.8.0",
+    "@types/bun": "^1.1.3"
+  }
 }
