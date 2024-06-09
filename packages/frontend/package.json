@@ -1,25 +1,28 @@
 {
-  "name": "@app/fe",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "solid-js": "^1.8.15",
-    "hono": "^4.4.4",
-    "@app/be": "workspace:*"
-  },
-  "devDependencies": {
-    "autoprefixer": "^10.4.19",
-    "daisyui": "^4.12.2",
-    "postcss": "^8.4.38",
-    "tailwindcss": "^3.4.4",
-    "typescript": "^5.2.2",
-    "vite": "^5.2.0",
-    "vite-plugin-solid": "^2.10.2"
-  }
+	"name": "@app/fe",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc && vite build",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"@app/be": "workspace:*",
+		"@solidjs/router": "^0.13.5",
+		"@felte/solid": "^1.2.13",
+		"@supabase/supabase-js": "^2.43.4",
+		"hono": "^4.4.4",
+		"solid-js": "^1.8.15"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.19",
+		"daisyui": "^4.12.2",
+		"postcss": "^8.4.38",
+		"tailwindcss": "^3.4.4",
+		"typescript": "^5.2.2",
+		"vite": "^5.2.0",
+		"vite-plugin-solid": "^2.10.2"
+	}
 }

@@ -2,6 +2,8 @@
   "compilerOptions": {
     "target": "ESNext",
     "module": "ESNext",
+    "baseUrl": ".",
+    "noEmit": true,
     "moduleResolution": "Bundler",
     "strict": true,
     "skipLibCheck": true,
@@ -14,4 +16,6 @@
     "jsx": "react-jsx",
     "jsxImportSource": "hono/jsx"
   },
+  "include": ["src/global.d.ts", "src", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"]
 }
