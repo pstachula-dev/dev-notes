@@ -14,6 +14,14 @@ const app = new Hono()
 	.route("/users", usersRoute)
 	.route("/notes", notesRoute);
 
-export default handle(app);
+const handler = handle(app);
+
+export default handler;
 
 export type AppType = typeof app;
+
+export const GET = handler;
+export const POST = handler;
+export const PATCH = handler;
+export const PUT = handler;
+export const OPTIONS = handler;
