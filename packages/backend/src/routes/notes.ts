@@ -1,5 +1,5 @@
 import { Hono } from "hono";
-import { notesFindMany, notesfindFirst } from "src/models/notes.model";
+import { notesFindMany, notesfindFirst } from "../models/notes.model";
 
 export const notesRoute = new Hono()
 	.get("/", async (c) => {

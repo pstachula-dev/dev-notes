@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
     "target": "ESNext",
-    "module": "ESNext",
+    "module": "commonjs",
     "baseUrl": ".",
-    "noEmit": true,
-    "moduleResolution": "Bundler",
+    "moduleResolution": "node",
     "strict": true,
+    "outDir": "./dist",
     "skipLibCheck": true,
     "lib": [
       "ESNext"

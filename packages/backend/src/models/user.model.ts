@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "../services/drizzle/client";
-import { users } from "src/services/drizzle/schema/schema";
+import { users } from "../services/drizzle/schema/schema";
 
 export const usersFindMany = () => {
 	return db.query.users.findMany();
