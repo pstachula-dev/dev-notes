@@ -10,6 +10,7 @@ import { A } from "@solidjs/router";
 const client = hc<AppType>(import.meta.env.VITE_API_URL);
 
 function App() {
+	let formRef: HTMLFormElement | undefined;
 	const [count, setCount] = createSignal(0);
 	const [form, setForm] = createStore({ email: "", password: "" });
 
@@ -19,39 +20,54 @@ function App() {
 
 	return (
 		<>
-			<h1>Vite + Solid</h1>
-
 			<h1>Login</h1>
 
 			<A href="/users">Users</A>
 
-			<input
-				onChange={(e) => {
-					setForm("email", e.target.value);
-				}}
-				type="text"
-				placeholder="Type here"
-				class="input input-bordered w-full max-w-xs"
-			/>
-			<input
-				onChange={(e) => {
-					setForm("password", e.target.value);
-				}}
-				type="password"
-				placeholder="Type here"
-				class="input input-bordered w-full max-w-xs"
-			/>
+			<form ref={formRef}>
+				<input
+					onChange={(e) => {
+						setForm("email", e.target.value);
+					}}
+					type="text"
+					required
+					placeholder="Type here"
+					class="input input-bordered w-full max-w-xs"
+				/>
+				<input
+					onChange={(e) => {
+						setForm("password", e.target.value);
+					}}
+					type="password"
+					required
+					maxLength={50}
+					placeholder="Type here"
+					class="input input-bordered w-full max-w-xs"
+				/>
 
-			<button
-				type="button"
-				class="btn btn-primary"
-				onClick={async () => {
-					const { data, error } = await supabase.auth.signInWithPassword(form);
-					console.log(data, error);
-				}}
-			>
-				Login
-			</button>
+				<button
+					type="button"
+					class="btn btn-primary"
+					onClick={async () => {
+						formRef?.reportValidity();
+						if (formRef?.checkValidity() === false) return;
+
+						const { data, error } =
+							await supabase.auth.signInWithPassword(form);
+
+						if (!error) {
+							client.users.$post({
+								form: {
+									email: data.user.email || "",
+									name: data.user.id,
+								},
+							});
+						}
+					}}
+				>
+					Login
+				</button>
+			</form>
 
 			<hr />
 

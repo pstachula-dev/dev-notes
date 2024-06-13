@@ -1,6 +1,6 @@
 import type { Config } from "drizzle-kit";
 export default {
-	schema: "./src/services/drizzle/schema/users.ts",
+	schema: "./src/services/drizzle/schema/schema.ts",
 	out: "./drizzle",
 	dialect: "sqlite",
 	driver: "turso",

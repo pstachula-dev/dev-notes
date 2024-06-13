@@ -1,28 +1,19 @@
 import { Hono } from "hono";
+import { handle } from "@hono/node-server/vercel";
 import { cors } from "hono/cors";
-import { db } from "./services/drizzle/client";
+import { usersRoute } from "./routes/users";
+import { notesRoute } from "./routes/notes";
 
 const app = new Hono()
 	.use(cors())
-	.get("/", (c) => {
-		return c.json("hello");
-	})
-	.get("/users", async (c) => {
-		const users = await db.query.users.findMany();
+	.route("/users", usersRoute)
+	.route("/notes", notesRoute);
 
-		return c.json(users, 200);
-	})
-	.get("/users/:id", async (c) => {
-		const users = await db.query.users.findMany();
+// export default {
+// 	port: 2137,
+// 	fetch: app.fetch,
+// };
 
-		return c.json(users, 200);
-	});
-
-export default {
-	port: 2137,
-	fetch: app.fetch,
-};
+export default handle(app);
 
 export type AppType = typeof app;
-
-export const lol = 1;

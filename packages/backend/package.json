@@ -1,21 +1,22 @@
 {
-	"name": "@app/be",
-	"scripts": {
-		"dev:cf": "wrangler dev src/index.ts --port 2137",
-		"dev": "bun --watch src/index.ts",
-		"deploy": "wrangler deploy --minify src/index.ts"
-	},
-	"dependencies": {
-		"@libsql/client": "^0.6.2",
-		"drizzle-orm": "^0.31.1",
-		"hono": "^4.4.4",
-		"@hono/zod-validator": "^0.2.2",
-		"zod": "^3.23.8",
-		"sqlite": "^5.1.1"
-	},
-	"devDependencies": {
-		"@cloudflare/workers-types": "^4.20240529.0",
-		"drizzle-kit": "^0.22.4",
-		"wrangler": "^3.57.2"
-	}
+  "name": "@app/be",
+  "scripts": {
+    "dev:cf": "wrangler dev src/index.ts --port 2137",
+    "dev": "bun --watch src/index.ts",
+    "deploy": "wrangler deploy --minify src/index.ts"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.2.2",
+    "@libsql/client": "^0.6.2",
+    "@paralleldrive/cuid2": "^2.2.2",
+    "drizzle-orm": "^0.31.1",
+    "hono": "^4.4.4",
+    "sqlite": "^5.1.1",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240529.0",
+    "drizzle-kit": "^0.22.4",
+    "wrangler": "^3.57.2"
+  }
 }
