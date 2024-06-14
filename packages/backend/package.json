@@ -3,10 +3,8 @@
 	"scripts": {
 		"dev:cf": "wrangler dev src/index.ts --port 2137",
 		"dev": "bun --watch src/index.ts",
-		"xbuild": "rimraf dist; tsc",
-		"xstart": "node dist/src/index.js",
-		"v:start": "vercel dev",
-		"v:deploy": "vercel build",
+		"build": "rimraf dist; tsc",
+		"start": "node dist/src/index.js",
 		"deploy": "wrangler deploy --minify src/index.ts"
 	},
 	"dependencies": {
