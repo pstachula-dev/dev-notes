@@ -3,8 +3,9 @@
 	"scripts": {
 		"dev:cf": "wrangler dev src/index.ts --port 2137",
 		"dev": "bun --watch src/index.ts",
-		"build": "rimraf dist; tsc",
-		"start": "node dist/src/index.js",
+		"build:node": "rimraf dist; tsc",
+		"build": "rimraf dist; bun build ./src/index.ts --outdir=./dist",
+		"start": "bun dist/index.js",
 		"deploy": "wrangler deploy --minify src/index.ts"
 	},
 	"dependencies": {
@@ -13,7 +14,6 @@
 		"@paralleldrive/cuid2": "^2.2.2",
 		"rimraf": "5.0.7",
 		"dotenv": "16.4.5",
-		"vercel": "^34.2.7",
 		"drizzle-orm": "^0.31.1",
 		"hono": "^4.4.4",
 		"sqlite": "^5.1.1",
