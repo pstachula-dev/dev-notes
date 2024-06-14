@@ -2,10 +2,10 @@ import { Hono } from "hono";
 import { handle } from "hono/vercel";
 import { cors } from "hono/cors";
 import { usersRoute } from "../src/routes/users";
-import { notesRoute } from "../src//routes/notes";
+import { notesRoute } from "../src/routes/notes";
 
 export const config = {
-	runtime: "edge",
+	// runtime: "edge",
 };
 
 const app = new Hono()
